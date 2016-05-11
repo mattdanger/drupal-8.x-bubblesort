@@ -1,0 +1,6 @@
+# Define default links for this module.
+bubblesort.index:
+  title: Bubblesort
+  description: Bubblesort Simulator
+  route_name: bubblesort.default_controller_main
+

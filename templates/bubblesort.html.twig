@@ -1,0 +1,40 @@
+<article>
+  <div>
+
+    <form method="POST">
+      {% if not complete %}<button name="op" value="step">Step</button>{% endif %}
+      <button name="op" value="shuffle">Shuffle</button>
+    </form>
+    <hr>
+Position : {{ pos }}
+    {% if set and complete %}
+      <h3>Sort complete!</h3>
+      <p>Click Shuffle to reload with new data</p>
+    {% endif %}
+
+    {% if set is defined %}
+     {% if not complete %}<p>Click "Step" above to walk through the sorting item-by-item.</p>{% endif %}
+    
+      <table class="bubblesort">
+      {% for i in 0..set|length %}
+        <tr>
+          <td>
+            <span 
+              style="width: {{ set[i] }}%" 
+              {% if not complete and ((pos == i) or (pos+1 == i)) %}class="active"{% endif %}
+            ></span>
+            &nbsp;   {{ set[i] }}
+            
+          </td>
+        </tr>
+      {% endfor %}
+      </table>
+      
+    {% else %}
+    
+      <p>To begin, click "Shuffle" to generate a sortable list of data.</p>
+    
+    {% endif %}
+
+  </div>
+</article>
